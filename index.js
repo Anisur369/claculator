@@ -12,24 +12,25 @@ function loan() {
 loanMount.addEventListener('input', loan);
 loanMount2.addEventListener('input', loan);
 
-
-const profitInput = document.getElementById('persentProfit');
-const costInput = document.getElementById('persentProfit2');
+const sellingInput = document.getElementById('persentProfit'); // বিক্রয় মূল্য
+const costInput = document.getElementById('persentProfit2');    // ক্রয় মূল্য
 const resultDisplay = document.getElementById('persentProfitTotal');
 
 function calculateProfitPercentage() {
-  const profitPrice = parseFloat(persentProfit.value) || 0;
-  const costPrice = parseFloat(persentProfit2.value) || 0;
+  const sellingPrice = parseFloat(sellingInput.value) || 0;
+  const costPrice = parseFloat(costInput.value) || 0;
+
   if (costPrice === 0) {
-    persentProfitTotal.innerHTML = '0';
+    resultDisplay.innerHTML = '0%';
     return;
   }
-  const sellingPrice = profitPrice - costPrice;  
-  const percentage = (sellingPrice / costPrice) * 100
-  persentProfitTotal.innerHTML = percentage.toFixed(2);
+
+  const profit = sellingPrice - costPrice;
+  const percentage = (profit / costPrice) * 100;
+  resultDisplay.innerHTML = percentage.toFixed(2) + '%';
 }
 
+sellingInput.addEventListener('input', calculateProfitPercentage);
+costInput.addEventListener('input', calculateProfitPercentage);
 
-persentProfit.addEventListener('input', calculateProfitPercentage);
-persentProfit2.addEventListener('input', calculateProfitPercentage);
 

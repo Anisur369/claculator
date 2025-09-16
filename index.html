@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-<form action="/action_page.php">
+<!-- <div action="/action_page.php">
   <fieldset>
     <legend>মুনাফা নির্ণয়:</legend>
     <label for="loanMount">মূলধন টাকা:</label>
@@ -17,9 +18,44 @@
     <p>লাভ টাকা = <span id="profit">0</span></p>
     <p>মোট টাকা = <span id="totalProfit">0</span></p>
   </fieldset>
-</form>
+</div> -->
 
-<form action="#">
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md space-y-6">
+  <fieldset class="border border-gray-300 rounded-md p-4">
+    <legend class="text-lg font-semibold text-indigo-600 px-2">💰 মুনাফা নির্ণয়</legend>
+
+    <div class="space-y-4 mt-4">
+      <label for="loanMount" class="block text-gray-700 font-medium">
+        মূলধন টাকা:
+      </label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="loanMount" name="loanMount"
+               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <span class="text-gray-600 font-bold">৳</span>
+      </div>
+
+      <label for="loanMount2" class="block text-gray-700 font-medium">
+        শতকরাই:
+      </label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="loanMount2" name="loanMount2"
+               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <span class="text-gray-600 font-bold">%</span>
+      </div>
+
+      <p class="text-sm text-gray-500 italic">ফর্মুলা: মূলধন × শতকরাই ÷ ১০০</p>
+
+      <div class="text-md font-semibold text-green-700">
+        লাভ টাকা = <span id="profit">0</span> ৳
+      </div>
+      <div class="text-md font-semibold text-blue-700">
+        মোট টাকা = <span id="totalProfit">0</span> ৳
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<!-- <div class="space-y-4 max-w-sm mx-auto mt-10">
   <fieldset>
     <legend>শতকরা % নির্ণয়</legend>
     <label for="persent">লাভ + মূলধন:</label>
@@ -29,7 +65,42 @@
     <p>( (লাভ-মূলধন) / মূলধন ) x 100</p>
     <p>মোট পারছেন্ট= <span id="persentProfitTotal"></span>%</p>
   </fieldset>
-</form>
+</div> -->
+
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md space-y-6">
+  <fieldset class="border border-gray-300 rounded-md p-4">
+    <legend class="text-lg font-semibold text-indigo-600 px-2">📊 শতকরা % নির্ণয়</legend>
+
+    <div class="space-y-4 mt-4">
+      <label for="persentProfit" class="block text-gray-700 font-medium">
+        লাভ + মূলধন:
+      </label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="persentProfit" name="persent"
+               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <span class="text-gray-600 font-bold">৳</span>
+      </div>
+
+      <label for="persentProfit2" class="block text-gray-700 font-medium">
+        মূলধন:
+      </label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="persentProfit2" name="persent"
+               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <span class="text-gray-600 font-bold">৳</span>
+      </div>
+
+      <p class="text-sm text-gray-500 italic">
+        ফর্মুলা: ((লাভ - মূলধন) ÷ মূলধন) × ১০০
+      </p>
+
+      <div class="text-md font-semibold text-green-700">
+        মোট পারছেন্ট = <span id="persentProfitTotal">0</span>%
+      </div>
+    </div>
+  </fieldset>
+</div>
+
 
 
   <script src="index.js"></script>
