@@ -12,9 +12,12 @@ function loan() {
 loanMount.addEventListener('input', loan);
 loanMount2.addEventListener('input', loan);
 
+
+
 const sellingInput = document.getElementById('persentProfit');
 const costInput = document.getElementById('persentProfit2');
 const resultDisplay = document.getElementById('persentProfitTotal');
+const takaDisplay = document.getElementById('persentProfitTaka');
 function calculateProfitPercentage() {
   const sellingPrice = parseFloat(sellingInput.value) || 0;
   const costPrice = parseFloat(costInput.value) || 0;
@@ -25,6 +28,7 @@ function calculateProfitPercentage() {
   const profit = sellingPrice - costPrice;
   const percentage = (profit / costPrice) * 100;
   resultDisplay.innerHTML = percentage.toFixed(2);
+  takaDisplay.innerHTML = profit.toFixed(2);
 }
 sellingInput.addEventListener('input', calculateProfitPercentage);
 costInput.addEventListener('input', calculateProfitPercentage);
