@@ -19,12 +19,12 @@ function calculateProfitPercentage() {
   const sellingPrice = parseFloat(sellingInput.value) || 0;
   const costPrice = parseFloat(costInput.value) || 0;
   if (costPrice === 0) {
-    resultDisplay.innerHTML = '0%';
+    resultDisplay.innerHTML = '0';
     return;
   }
   const profit = sellingPrice - costPrice;
   const percentage = (profit / costPrice) * 100;
-  resultDisplay.innerHTML = percentage.toFixed(2) + '%';
+  resultDisplay.innerHTML = percentage.toFixed(2);
 }
 sellingInput.addEventListener('input', calculateProfitPercentage);
 costInput.addEventListener('input', calculateProfitPercentage);
